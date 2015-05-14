@@ -21,6 +21,7 @@ role :app, %w{erylei.com}
 role :web, %w{erylei.com}
 role :db,  %w{erylei.com}
 
+set :user, 'ery'
 
 
 # Configuration
