@@ -4,6 +4,8 @@ lock '3.4.0'
 set :application, 'bottle'
 set :repo_url, 'git@github.com:ery/bottle.git'
 
+set :user, 'ery'
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
