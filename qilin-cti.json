@@ -1,0 +1,183 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.1",
+        "title": "麒麟CTI-应用管理"
+    },
+    "basePath": "/cti",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/app/create": {
+            "post": {
+                "description": "创建应用",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "应用名称",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "callback",
+                        "in": "query",
+                        "description": "服务器回调地址",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "memo",
+                        "in": "query",
+                        "description": "描述",
+                        "required": false,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "title": "content",
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "$ref": "#/definitions/Result"
+                                },
+                                "app": {
+                                    "$ref": "#/definitions/App"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/app/update": {
+            "post": {
+                "description": "修改应用",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "应用名称",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "callback",
+                        "in": "query",
+                        "description": "服务器回调地址",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "memo",
+                        "in": "query",
+                        "description": "描述",
+                        "required": false,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "title": "content",
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "$ref": "#/definitions/Result"
+                                },
+                                "app": {
+                                    "$ref": "#/definitions/App"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/app": {
+            "get": {
+                "description": "查询应用A",
+                "parameters": [
+                    {
+                        "name": "appid",
+                        "in": "query",
+                        "description": "应用ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "title": "content",
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "$ref": "#/definitions/Result"
+                                },
+                                "app": {
+                                    "$ref": "#/definitions/App"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Result": {
+            "type": "object",
+            "description": "API调用结果",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "编码"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "消息"
+                }
+            }
+        },
+        "App": {
+            "type": "object",
+            "description": "应用信息",
+            "properties": {
+                "appid": {
+                    "type": "string",
+                    "description": "应用ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "应用名称"
+                },
+                "callback": {
+                    "type": "string",
+                    "description": "服务器回调地址"
+                },
+                "numbers": {
+                    "type": "string",
+                    "description": "中继号列表"
+                },
+                "memo": {
+                    "type": "string",
+                    "description": "描述"
+                }
+            }
+        }
+    }
+}
